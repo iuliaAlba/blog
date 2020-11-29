@@ -6,12 +6,13 @@ namespace App\Form;
 use App\Entity\Articles;
 use App\Entity\MotsClesArticles;
 use App\Entity\CategoriesArticles;
-
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ArticlesType extends AbstractType
 {
@@ -19,9 +20,11 @@ class ArticlesType extends AbstractType
     {
         $builder
             ->add('titre')
-            ->add('contenu')
-            // ->add('contenu', CKEditorType::class)
-            ->add('featured_image')
+            // ->add('contenu')
+            ->add('contenu', CKEditorType::class)
+            ->add('imageFile', VichImageType::class, [
+                'label' => 'Illustration'
+            ])
             
             // ->add('slug')
             ->add('motsClesArticles', EntityType::class, [
@@ -40,6 +43,7 @@ class ArticlesType extends AbstractType
                 
                 
             ])
+            ->add('Poster', SubmitType::class)
             // ->add('created_at')
             // ->add('updated_at')
             // ->add('users')

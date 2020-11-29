@@ -5,6 +5,11 @@
 
 {% block body %}
 	<!-- Main Content -->
+	{% for message in app.flashes('message') %}
+	<div class="alert alert-success" role="alert">
+		{{message}}
+	</div>
+	{% endfor %}
 	<h1>Articles index</h1>
 	<div class="container">
 		<div class="row">
@@ -16,7 +21,7 @@
 					{# <img src="{{ vich_uploader_asset(product, 'image')   }}" alt="{{ product.nombre }}" /> #}
 					<div class="post-preview">
 						<a href="{{ path('articles_show', {'slug': article.slug}) }}">
-							<h2></a class="post-title">{{ article.titre }}></h2>
+							<h2></a class="post-title">{{ article.titre }}</h2>
 							<h3 class="post-subtitle">
 							{# {% for motclesarticles in article.getMotsClesArticles() %}
 								{% for motcle in motclesarticles.getMotsCles() %}

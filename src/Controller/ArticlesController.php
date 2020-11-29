@@ -16,10 +16,12 @@ use Knp\Component\Pager\PaginatorInterface;
 use App\Repository\ArticlesRepository;
 use App\Repository\CommentairesRepository;
 use Vich\UploaderBundle\Mapping\Annotation;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/articles")
@@ -52,6 +54,7 @@ class ArticlesController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_USER")
      * @Route("/new", name="articles_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
@@ -61,10 +64,11 @@ class ArticlesController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $article->setUsers($this->getUser());
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($article);
             $entityManager->flush();
-
+            $this->addFlash('message','Bien joué, votre article a été créé!');
             return $this->redirectToRoute('articles_index');
         }
 
@@ -77,13 +81,20 @@ class ArticlesController extends AbstractController
     /**
      * @Route("/{slug}", name="articles_show", methods={"GET"})
      */
-    public function show($slug, Articles $article, Request $request): Response
+    public function show($slug, Request $request): Response
     {
-
+            // On récupère l'article correspondant au slug
+        $article = $this->getDoctrine()->getRepository(Articles::class)->findOneBy(['slug' => $slug]);
         $commentaires = $this->getDoctrine()->getRepository(Commentaires::class)->findBy([
             'articles' => $article,
             'actif' => 1
         ],['created_at' => 'desc']);
+        if(!$article){
+            // Si aucun article n'est trouvé, nous créons une exception
+            throw $this->createNotFoundException('L\'article n\'existe pas');
+        }
+
+
            // Nous créons l'instance de "Commentaires"
         $commentaire = new Commentaires();
 
@@ -109,7 +120,7 @@ class ArticlesController extends AbstractController
         $doctrine->flush();
 
         // On redirige l'utilisateur
-        // return $this->redirectToRoute('actualites_article', ['slug' => $slug]);
+        return $this->redirectToRoute('articles_index', ['slug' => $slug]);
     }
     // Si l'article existe nous envoyons les données à la vue
     return $this->render('articles/show.html.twig', [
