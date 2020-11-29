@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit MotsClesArticles{% endblock %}
+
+{% block body %}
+    <h1>Edit MotsClesArticles</h1>
+
+    {{ include('mots_cles_articles/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('mots_cles_articles_index') }}">back to list</a>
+
+    {{ include('mots_cles_articles/_delete_form.html.twig') }}
+{% endblock %}

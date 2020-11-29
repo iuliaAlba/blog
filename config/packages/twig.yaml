@@ -1,0 +1,98 @@
+twig:
+    default_path: '%kernel.project_dir%/templates'
+    debug: '%kernel.debug%'
+    strict_variables: '%kernel.debug%'
+    exception_controller: null
+    form_themes: 
+        ['bootstrap_4_layout.html.twig',
+        '@FOSCKEditor/Form/ckeditor_widget.html.twig'] # accepte plusieurs thèmes
+fos_ck_editor:
+    configs:
+        main_config:
+            toolbar:
+                - { name: "styles", items: ['Bold', 'Italic', 'Underline', 'Strike', 'Blockquote', '-', 'Link', '-', 'RemoveFormat', '-', 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'Image', 'Table', '-', 'Styles', 'Format','Font','FontSize', '-', 'TextColor', 'BGColor', 'Source'] }
+vich_uploader:
+    db_driver: orm 
+    mappings:
+        featured_images:
+            uri_prefix: '%app.path.featured_images%'
+            namer: Vich\UploaderBundle\Naming\UniqidNamer
+            upload_destination: '%kernel.project_dir%/public%app.path.featured_images%'
+easy_admin:
+    # On définit le nom de l'interface d'administration
+    site_name: 'Gestion de mon blog'
+    # On définit l'affichage de l'utilisateur
+    user:
+        display_name: true
+        display_avatar: false
+    design:
+        # Ces lignes sont utiles pour CKEditor
+        form_theme:
+            - "@EasyAdmin/form/bootstrap_4.html.twig"
+            - "@FOSCKEditor/Form/ckeditor_widget.html.twig"
+        # Ces lignes définiront notre menu
+        menu:
+            - { label: 'Articles' }
+            - { entity: 'Articles', label: 'Articles', icon: 'book' }
+            - { entity: 'Categories', label: 'Catégories', icon: 'tag' }
+            - { entity: 'MotsCles', label: 'Mots Clés', icon: 'tag' }
+            - { label: 'Utilisateurs' }
+            - { entity: 'Users', label: 'Utilisateurs', icon: 'user' }
+    formats:
+        # Ici on définit le format des dates
+        datetime: 'd/m/Y à H:i'
+    entities:
+        Articles:
+            # Correspond au fichier Articles.php
+            class: App\Entity\Articles
+            # On définit ci-dessous le contenu de la liste qui affichera les articles et les critères de tri
+            list:
+                fields:
+                    - id
+                    - titre
+                    # Le champ ci-dessous affichera l'image de l'article
+                    - { property: 'featured_image', label: 'Image', type: 'image', base_path: '%app.path.featured_images%' }
+                    - { property: 'created_at', label: 'Créé' }
+                    # Les catégories et les mots-clé sont listés ci-dessous
+                    - { property: 'categories', label: 'Catégories', type: 'array'}
+                    - { property: 'motsCles', label: 'Mots-Clés', type: 'array'}
+                sort: ['created_at', 'desc']
+            # On définit ci-dessous le contenu du formulaire d'ajout ou modification d'article
+            form:
+                fields:
+                    - titre
+                    # Affichage de l'éditeur Wysiwyg
+                    - { property: 'contenu', type: 'fos_ckeditor', type_options: { config_name: 'main_config' }}
+                    # Affichage du champ d'ajout d'image
+                    - { property: 'imageFile', type: 'vich_image', label: 'Image' }
+                    - users
+                    # Les catégories et mots-clés peuvent s'afficher avec une sélection multiple
+                    - { property: 'categories', label: 'Catégories', type: 'entity', type_options: { class: 'App\Entity\Categories', multiple: true,by_reference: false, attr: { data-widget: 'select2' }}}
+                    - { property: 'motsCles', label: 'Mots Clés', type: 'entity', type_options: { class: 'App\Entity\MotsCles', multiple: true,by_reference: false, attr: { data-widget: 'select2' }}}
+        Users:
+            class: App\Entity\Users
+            label: 'Utilisateurs'
+            list:
+                fields:
+                    - id
+                    - email
+                    - { property: 'roles', label: 'Rôles', type: json_array}
+            form:
+                fields:
+                    - email
+                    - { property: 'roles', label: 'Rôles', type: choice, type_options: {expanded: true, multiple: true, choices: {'Utilisateur':'ROLE_USER', 'Administrateur':'ROLE_ADMIN'}}}
+
+# stof_doctrine_extensions:
+#     default_locale: fr_FR
+#     orm:
+#         default:
+#             sluggable: true
+#             timestampable: true
+    # mappings:
+    #     property_image:
+    #         uri_prefix: /images/properties
+    #         upload_destination: '%kernel.project_dir%/public/images/properties'
+
+
+
+   

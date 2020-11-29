@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Articles index
+{% endblock %}
+
+{% block body %}
+	<!-- Main Content -->
+	<h1>Articles index</h1>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-md-10 mx-auto">
+				{% for article in articles %}
+					<img src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="" />
+					{# <img src="{{ vich_uploader_asset(article, 'imageFile') | imagine_filter('reduc') }}" alt="" /> #}
+					{# <img src="{{ path ~ vich_uploader_asset(data, 'imageFile', 'App\\Entity\\Crente') }}" style="margin-top: -20px" /> #}
+					{# <img src="{{ vich_uploader_asset(product, 'image')   }}" alt="{{ product.nombre }}" /> #}
+					<div class="post-preview">
+						<a href="{{ path('articles_show', {'slug': article.slug}) }}">
+							<h2></a class="post-title">{{ article.titre }}></h2>
+							<h3 class="post-subtitle">
+							{# {% for motclesarticles in article.getMotsClesArticles() %}
+								{% for motcle in motclesarticles.getMotsCles() %}
+									{{ motcle.getMotCle() }}
+								{% endfor %}	
+								
+							{% endfor %} #}
+							</h3>
+						</a>
+						<div class="d-flex justify-content-between">
+							<div>
+
+								<p class="post-meta">Posted by
+									<a href="#">{{article.users }}</a>
+									on
+									{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</p>
+
+							</div>
+							<div class="clearfix">
+								<a class="btn btn-primary float-right" href="{{ path('articles_edit', {'id': article.id}) }}">edit</a>
+							</div>
+						</div>
+						<hr>
+					{% else %}
+						<tr>
+							<td colspan="8">no records found</td>
+						</tr>
+					{% endfor %}
+
+				</div>
+
+				<!-- Pager -->
+				<div class="d-flex justify-content-between">
+					<div class="clearfix">
+						<a class="btn btn-primary float-left" href="{{ path('articles_new') }}">Create new</a>
+					</div>
+					<div>{{ knp_pagination_render(articles) }}</div>
+					<div class="clearfix">
+						<a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+{% endblock %}

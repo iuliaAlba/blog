@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Blog des Nuumies">
+        <meta name="students" content="Nuumfactory Blog">
+        <title>{% block title %}>Blog des nuumies {% endblock %}</title>
+        <link rel="icon" type="img/png" href="{{ asset('img/tnf_circle.png') }}" />
+        {% block stylesheets %}{% endblock %}
+        <!-- Bootstrap core CSS -->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom fonts for this template -->
+        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- Custom styles for this template -->
+        <link href="{{ asset('css/clean-blog.min.css') }}" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </head>
+    <body >
+        {# Navigation #}
+
+        {% block navbar %}
+        
+      
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+          <div class="container">
+            <img title="" alt="Blog Nuumfactory" src="{{ asset('img/logo_nuum_factory.png') }}">
+            <button class="navbar-toggler navbar-toggler-right" type="button" 
+                    data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" title="Consultez tous les articles" href="{{ path('articles_index')}}">Articles</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">A propos du blog</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ path('articles_new')}}">Ecrire</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ path('commentaires_new')}}">Ajouter un commentaire</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Nous contacter</a>
+                </li>
+
+                {% if app.user %}
+                  {% if is_granted('ROLE_ADMIN') %}
+                    <li  class="nav-item"><a class="nav-link"  href="/admin">Admin.</a></li>
+                  {% endif %}
+                  <li  class="nav-item"><a class="nav-link" href="/logout">Se déconnecter</a></li>
+                {% else %}
+                  {# <li  class="nav-item" ><a class="nav-link" href="{{ path('app_login')}}">Se connecter</a></li> #}
+                {% endif %}			        
+
+              </ul>
+            </div>
+          </div>
+        </nav>
+        {% endblock %}
+
+        {% block header %}
+        <!-- Page Header -->
+        <header class="masthead" style="background-image: url({{ asset('img/home-bg.jpg') }})">
+          <div class="overlay"></div>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12 col-md-10 mx-auto">
+                <div class="site-heading">
+                  <h1>BLOG DES NUUMIES</h1>
+                  {# <span class="subheading">Un blog fait par et pour les nuumies...</span> #}
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+        {% endblock %}
+        {# Corps de la page #}
+        {% block body %}
+        {# todo #}
+
+        {% endblock %}
+        {% block footer %}
+        <!-- Footer -->
+        <footer>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 col-md-10 mx-auto">
+                <ul class="list-inline text-center">
+                  <li class="list-inline-item">
+                    <a href="#">
+                      <span class="fa-stack fa-lg">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                      </span>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#">
+                      <span class="fa-stack fa-lg">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                      </span>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#">
+                      <span class="fa-stack fa-lg">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+                <p class="copyright text-muted">Copyright &copy; Nuumfactory 2020</p>
+              </div>
+            </div>
+          </div>
+        </footer>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+{% endblock %}
+        {% block javascripts %}
+        <!-- Custom scripts for this template -->
+        <script src="{{ asset('js/clean-blog.min.js') }}"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        {% endblock %}
+    </body>
+</html>
+
