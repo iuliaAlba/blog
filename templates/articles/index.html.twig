@@ -23,12 +23,12 @@
 						<a href="{{ path('articles_show', {'slug': article.slug}) }}">
 							<h2></a class="post-title">{{ article.titre }}</h2>
 							<h3 class="post-subtitle">
-							{# {% for motclesarticles in article.getMotsClesArticles() %}
-								{% for motcle in motclesarticles.getMotsCles() %}
-									{{ motcle.getMotCle() }}
-								{% endfor %}	
+							{# {% for categorie in article.categories %} #}
+								{# {% for motcle in motclesarticles.getMotsCles() %} #}
+									{# {{ categorie.nom }} #}
+								{# {% endfor %}	 #}
 								
-							{% endfor %} #}
+							{# {% endfor %} #}
 							</h3>
 						</a>
 						<div class="d-flex justify-content-between">

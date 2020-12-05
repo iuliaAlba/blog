@@ -14,7 +14,7 @@ class MotsClesType extends AbstractType
     {
         $builder 
             ->add('mot_cle')
-            ->add('slug')
+            // ->add('slug')
         ;
     }
 

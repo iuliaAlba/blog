@@ -83,7 +83,7 @@ class MotsClesArticlesController extends AbstractController
      */
     public function delete(Request $request, MotsClesArticles $motsClesArticle): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$motsClesArticle->getMots_cles(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$motsClesArticle->getMotsCles(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($motsClesArticle);
             $entityManager->flush();
