@@ -54,79 +54,79 @@ class ArticlesController extends AbstractController
         // ]);
     }
 
-    // /**
-    //  * @IsGranted("ROLE_USER")
-    //  * @Route("/new", name="articles_new", methods={"GET","POST"})
-    //  */
-    // public function new(Request $request): Response
-    // {
-    //     $article = new Articles();
-    //     $form = $this->createForm(ArticlesType::class, $article);
-    //     $form->handleRequest($request);
-
-    //     if ($form->isSubmitted() && $form->isValid()) {
-    //         $article->setUsers($this->getUser());
-    //         $entityManager = $this->getDoctrine()->getManager();
-    //         $entityManager->persist($article);
-    //         $entityManager->flush();
-    //         $this->addFlash('message','Bien joué, votre article a été créé!');
-    //         return $this->redirectToRoute('articles_index');
-    //     }
-
-    //     return $this->render('articles/new.html.twig', [
-    //         'article' => $article,
-    //         'form' => $form->createView(),
-    //     ]);
-    // }
     /**
      * @IsGranted("ROLE_USER")
      * @Route("/new", name="articles_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
-
-        $motsClesArticles = new MotsClesArticles();
-        $motsClesArticlesform = $this->createForm(MotsClesArticlesType::class, $motsClesArticles);
-        $motsClesArticlesform->handleRequest($request);   
-        // if ($motsClesArticlesform->isSubmitted() && $motsClesArticlesform->isValid()) {
-        //     $entityManager = $this->getDoctrine()->getManager();
-        //     // $entityManager->persist($motsClesArticles);
-        //     // $entityManager->flush();
-// 
-        //     // return $this->redirectToRoute('mots_cles_articles_index');
-        // }
-        // Nous créons l'instance de "Articles"
         $article = new Articles();
-        // Nous créons le formulaire en utilisant "ArticlesType" et on lui passe l'instance
         $form = $this->createForm(ArticlesType::class, $article);
-        // Nous récupérons les données
         $form->handleRequest($request);
 
-        if (($form->isSubmitted() && $form->isValid())) {
-            // Hydrate notre article avec l'utilisateur
+        if ($form->isSubmitted() && $form->isValid()) {
             $article->setUsers($this->getUser());
-            // Hydrate notre motsClesArticles avec l'article
-            $motsClesArticles->setArticles($article);
-            // Hydrate notre article avec $motsClesArticles
-            $article->addMotsClesArticle($motsClesArticles);
             $entityManager = $this->getDoctrine()->getManager();
-            // On hydrate notre instance $article
             $entityManager->persist($article);
-            // On hydrate notre instance $motsClesArticles
-            $entityManager->persist($motsClesArticles);
-
             $entityManager->flush();
             $this->addFlash('message','Bien joué, votre article a été créé!');
             return $this->redirectToRoute('articles_index');
         }
 
-
         return $this->render('articles/new.html.twig', [
             'article' => $article,
             'form' => $form->createView(),
-            'motsClesArticlesform' => $motsClesArticlesform->createView(),
         ]);
     }
+//     /**
+//      * @IsGranted("ROLE_USER")
+//      * @Route("/new", name="articles_new", methods={"GET","POST"})
+//      */
+//     public function new(Request $request): Response
+//     {
+
+//         $motsClesArticles = new MotsClesArticles();
+//         $motsClesArticlesform = $this->createForm(MotsClesArticlesType::class, $motsClesArticles);
+//         $motsClesArticlesform->handleRequest($request);   
+//         // if ($motsClesArticlesform->isSubmitted() && $motsClesArticlesform->isValid()) {
+//         //     $entityManager = $this->getDoctrine()->getManager();
+//         //     // $entityManager->persist($motsClesArticles);
+//         //     // $entityManager->flush();
+// // 
+//         //     // return $this->redirectToRoute('mots_cles_articles_index');
+//         // }
+//         // Nous créons l'instance de "Articles"
+//         $article = new Articles();
+//         // Nous créons le formulaire en utilisant "ArticlesType" et on lui passe l'instance
+//         $form = $this->createForm(ArticlesType::class, $article);
+//         // Nous récupérons les données
+//         $form->handleRequest($request);
+
+//         if (($form->isSubmitted() && $form->isValid())) {
+//             // Hydrate notre article avec l'utilisateur
+//             $article->setUsers($this->getUser());
+//             // Hydrate notre motsClesArticles avec l'article
+//             $motsClesArticles->setArticles($article);
+//             // Hydrate notre article avec $motsClesArticles
+//             $article->addMotsClesArticle($motsClesArticles);
+//             $entityManager = $this->getDoctrine()->getManager();
+//             // On hydrate notre instance $article
+//             $entityManager->persist($article);
+//             // On hydrate notre instance $motsClesArticles
+//             $entityManager->persist($motsClesArticles);
+
+//             $entityManager->flush();
+//             $this->addFlash('message','Bien joué, votre article a été créé!');
+//             return $this->redirectToRoute('articles_index');
+//         }
+
+
+//         return $this->render('articles/new.html.twig', [
+//             'article' => $article,
+//             'form' => $form->createView(),
+//             'motsClesArticlesform' => $motsClesArticlesform->createView(),
+//         ]);
+//     }
     /**
      * @Route("/{slug}", name="articles_show", methods={"GET"})
      */

@@ -30,12 +30,12 @@ class ArticlesType extends AbstractType
             
             // ->add('slug')
             // ->add('motsClesArticles')
-            // ->add('motsClesArticles', EntityType::class, [
-            //     'class' => MotsClesArticles::class,
-            //     'label' => 'Mots-Clés',
-            //     'multiple' => true,
-            //     'expanded' => true,   
-            // ])
+            ->add('motsClesArticles', EntityType::class, [
+                'class' => MotsClesArticles::class,
+                'label' => 'Mots-Clés',
+                'multiple' => true,
+                'expanded' => true,   
+            ])
             ->add('categoriesArticles', EntityType::class, [
                 'class' => CategoriesArticles::class,
                 'label' => 'Catégories',
