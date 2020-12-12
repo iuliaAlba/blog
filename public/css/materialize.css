@@ -7270,7 +7270,12 @@ body.keyboard-focused .select-dropdown.dropdown-content li:focus {
   margin: 5px 15px;
   float: right;
 }
-
+.imgIndex {
+  /* height: 40px; */
+  /* width: 40px; */
+  /* margin: 5px 15px; */
+  float:left;
+}
 .select-dropdown li.optgroup {
   border-top: 1px solid #eee;
 }

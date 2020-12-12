@@ -2,20 +2,19 @@
 
 namespace App\Entity;
 
-use App\Repository\CategoriesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * @ORM\Entity(repositoryClass=CategoriesRepository::class)
+ * @ORM\Entity(repositoryClass="App\Repository\CategoriesRepository")
  */
 class Categories
 {
     /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
     private $id;
@@ -32,13 +31,17 @@ class Categories
     private $slug;
 
     /**
-     * @ORM\OneToMany(targetEntity=CategoriesArticles::class, mappedBy="categories", orphanRemoval=true)
+     * @ORM\ManyToMany(targetEntity="App\Entity\Articles", mappedBy="categories")
      */
-    private $categoriesArticles;
+    private $articles;
 
     public function __construct()
     {
-        $this->categoriesArticles = new ArrayCollection();
+        $this->articles = new ArrayCollection();
+    }
+    public function __toString()
+    {
+        return $this->nom;
     }
 
     public function getId(): ?int
@@ -63,46 +66,31 @@ class Categories
         return $this->slug;
     }
 
-    // public function setSlug(string $slug): self
-    // {
-    //     $this->slug = $slug;
-
-    //     return $this;
-    // }
-
     /**
-     * @return Collection|CategoriesArticles[]
+     * @return Collection|Articles[]
      */
-    public function getCategoriesArticles(): Collection
+    public function getArticles(): Collection
     {
-        return $this->categoriesArticles;
+        return $this->articles;
     }
 
-    public function addCategoriesArticle(CategoriesArticles $categoriesArticle): self
+    public function addArticle(Articles $article): self
     {
-        if (!$this->categoriesArticles->contains($categoriesArticle)) {
-            $this->categoriesArticles[] = $categoriesArticle;
-            $categoriesArticle->setCategories($this);
+        if (!$this->articles->contains($article)) {
+            $this->articles[] = $article;
+            $article->addCategory($this);
         }
 
         return $this;
     }
 
-    public function removeCategoriesArticle(CategoriesArticles $categoriesArticle): self
+    public function removeArticle(Articles $article): self
     {
-        if ($this->categoriesArticles->removeElement($categoriesArticle)) {
-            // set the owning side to null (unless already changed)
-            if ($categoriesArticle->getCategories() === $this) {
-                $categoriesArticle->setCategories(null);
-            }
+        if ($this->articles->contains($article)) {
+            $this->articles->removeElement($article);
+            $article->removeCategory($this);
         }
 
         return $this;
     }
-
-    public function __toString()
-    {
-        return $this->nom;
-    }
-    
 }

@@ -3,14 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Articles;
+use App\Twig\AppExtension;
 use App\Entity\Commentaires;
-use App\Entity\CategoriesArticles;
-
-use App\Entity\MotsClesArticles;
 use App\Form\ArticlesType;
 use App\Form\CommentairesType;
-use App\Form\MotsClesArticlesType;
-use App\Form\CategoriesArticlesType;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Knp\Component\Pager\PaginatorInterface;
 // use App\Form\CommentairesType;
@@ -44,6 +40,7 @@ class ArticlesController extends AbstractController
             6//Nombre de résultats par page
         );
         
+         
         return $this->render('articles/index.html.twig', [
             'articles' => $articles,
         ]);

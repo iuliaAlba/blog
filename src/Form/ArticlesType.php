@@ -4,10 +4,8 @@ namespace App\Form;
 
 // use FOS\CKEditorBundle\Form\type\CKEditorType;
 use App\Entity\Articles;
-use App\Entity\MotsClesArticles;
 use App\Entity\MotsCles;
-use App\Entity\CategoriesArticles;
-// use App\Entity\CategoriesArticles;
+use App\Entity\Categories;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -30,19 +28,16 @@ class ArticlesType extends AbstractType
             
             // ->add('slug')
             // ->add('motsClesArticles')
-            ->add('motsClesArticles', EntityType::class, [
-                'class' => MotsClesArticles::class,
+            ->add('motsCles', EntityType::class, [
+                'class' => MotsCles::class,
                 'label' => 'Mots-Clés',
                 'multiple' => true,
                 'expanded' => true,   
             ])
-            ->add('categoriesArticles', EntityType::class, [
-                'class' => CategoriesArticles::class,
-                'label' => 'Catégories',
+            ->add('categories', EntityType::class, [
+                'class' => Categories::class,
                 'multiple' => true,
-                'expanded' => true,
-                
-                
+                'expanded' => true
             ])
             ->add('Poster', SubmitType::class)
             // ->add('created_at')

@@ -2,20 +2,19 @@
 
 namespace App\Entity;
 
-use App\Repository\MotsClesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * @ORM\Entity(repositoryClass=MotsClesRepository::class)
+ * @ORM\Entity(repositoryClass="App\Repository\MotsClesRepository")
  */
 class MotsCles
 {
     /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
     private $id;
@@ -32,13 +31,18 @@ class MotsCles
     private $slug;
 
     /**
-     * @ORM\OneToMany(targetEntity=MotsClesArticles::class, mappedBy="mots_cles", orphanRemoval=true)
+     * @ORM\ManyToMany(targetEntity="App\Entity\Articles", mappedBy="mots_cles")
      */
-    private $motsClesArticles;
+    private $articles;
 
     public function __construct()
     {
-        $this->motsClesArticles = new ArrayCollection();
+        $this->articles = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->mot_cle;
     }
 
     public function getId(): ?int
@@ -63,50 +67,31 @@ class MotsCles
         return $this->slug;
     }
 
-    // public function setSlug(string $slug): self
-    // {
-    //     $this->slug = $slug;
-
-    //     return $this;
-    // }
-
     /**
-     * @return Collection|MotsClesArticles[]
+     * @return Collection|Articles[]
      */
-    public function getMotsClesArticles(): Collection
+    public function getArticles(): Collection
     {
-        return $this->motsClesArticles;
+        return $this->articles;
     }
 
-    public function addMotsClesArticle(MotsClesArticles $motsClesArticle): self
+    public function addArticle(Articles $article): self
     {
-        if (!$this->motsClesArticles->contains($motsClesArticle)) {
-            $this->motsClesArticles[] = $motsClesArticle;
-            $motsClesArticle->setMotsCles($this);
+        if (!$this->articles->contains($article)) {
+            $this->articles[] = $article;
+            $article->addMotsCle($this);
         }
 
         return $this;
     }
 
-    public function removeMotsClesArticle(MotsClesArticles $motsClesArticle): self
+    public function removeArticle(Articles $article): self
     {
-        if ($this->motsClesArticles->removeElement($motsClesArticle)) {
-            // set the owning side to null (unless already changed)
-            if ($motsClesArticle->getMotsCles() === $this) {
-                $motsClesArticle->setMotsCles(null);
-            }
+        if ($this->articles->contains($article)) {
+            $this->articles->removeElement($article);
+            $article->removeMotsCle($this);
         }
 
         return $this;
-    }
-    /**
-     * Generates the magic method
-     * 
-     */
-    public function __toString(){
-        // to show the name of the Category in the select
-        return $this->mot_cle;
-        // to show the id of the Category in the select
-        // return $this->id;
     }
 }

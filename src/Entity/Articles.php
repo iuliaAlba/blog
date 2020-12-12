@@ -73,22 +73,22 @@ class Articles
     private $commentaires;
 
 
-
-    /**
-     * @ORM\OneToMany(targetEntity=MotsClesArticles::class, mappedBy="articles", orphanRemoval=true)
-     */
-    private $motsClesArticles;
-
-    /**
-     * @ORM\OneToMany(targetEntity=CategoriesArticles::class, mappedBy="articles", orphanRemoval=true)
-     */
-    private $categoriesArticles;
-
     /**
      * @Vich\UploadableField(mapping="featured_images", fileNameProperty="featured_image")
      * @var File
      */
     private $imageFile;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Categories", inversedBy="articles")
+     */
+    private $categories;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\MotsCles", inversedBy="articles")
+     */
+    private $mots_cles;
+
 
 
     // Dans les Getters/setters
@@ -121,8 +121,8 @@ class Articles
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();
-        $this->motsClesArticles = new ArrayCollection();
-        $this->categoriesArticles = new ArrayCollection();
+        $this->mots_cles = new ArrayCollection();
+        $this->categories = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -235,69 +235,6 @@ class Articles
     }
 
 
-
-    
-
-    /**
-     * @return Collection|MotsClesArticles[]
-     */
-    public function getMotsClesArticles(): Collection
-    {
-        return $this->motsClesArticles;
-    }
-
-    public function addMotsClesArticle(MotsClesArticles $motsClesArticle): self
-    {
-        if (!$this->motsClesArticles->contains($motsClesArticle)) {
-            $this->motsClesArticles[] = $motsClesArticle;
-            $motsClesArticle->setArticles($this);
-        }
-
-        return $this;
-    }
-
-    public function removeMotsClesArticle(MotsClesArticles $motsClesArticle): self
-    {
-        if ($this->motsClesArticles->removeElement($motsClesArticle)) {
-            // set the owning side to null (unless already changed)
-            if ($motsClesArticle->getArticles() === $this) {
-                $motsClesArticle->setArticles(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|CategoriesArticles[]
-     */
-    public function getCategoriesArticles(): Collection
-    {
-        return $this->categoriesArticles;
-    }
-
-    public function addCategoriesArticle(CategoriesArticles $categoriesArticle): self
-    {
-        if (!$this->categoriesArticles->contains($categoriesArticle)) {
-            $this->categoriesArticles[] = $categoriesArticle;
-            $categoriesArticle->setArticles($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCategoriesArticle(CategoriesArticles $categoriesArticle): self
-    {
-        if ($this->categoriesArticles->removeElement($categoriesArticle)) {
-            // set the owning side to null (unless already changed)
-            if ($categoriesArticle->getArticles() === $this) {
-                $categoriesArticle->setArticles(null);
-            }
-        }
-
-        return $this;
-    }
-
         /**
      * Generates the magic method
      * 
@@ -309,6 +246,81 @@ class Articles
         // return $this->id;
     }
 
+    public function wordLimiter($str, $limit = 120, $endstr = '…'){
+        $str = strip_tags($str); 
+        if(strlen($str) <= $limit) return $str;
+            
+        $out = substr($str, 0, $limit);
+        $pos = strrpos($out, " ");
+        if ($pos>0) {
+            $out = substr($out, 0, $pos);
+        }
+        return $out .= $endstr;
+    }
 
-    
+
+    /**
+     * @return Collection|Categories[]
+     */
+    public function getCategories(): ?Collection
+    {
+        return $this->categories;
+    }
+
+    public function addCategory(Categories $category): ?self
+    {
+
+            
+            if (!$this->categories->contains($category)) {
+                $this->categories[] = $category;
+                // $category->addArticle($this);
+            }
+        return $this;
+    }
+
+    // public function addCategory(Categories $category): self
+    // {
+    //     if (!$this->categories->contains($category)) {
+    //         array_push($this->categories, $category);   
+    //         // $this->categories[] = $category;
+    //     }
+
+    //     return $this;
+    // }
+
+    public function removeCategory(Categories $category): self
+    {
+        if ($this->categories->contains($category)) {
+            $this->categories->removeElement($category);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|MotsCles[]
+     */
+    public function getMotsCles(): Collection
+    {
+        return $this->mots_cles;
+    }
+
+    public function addMotsCle(MotsCles $motsCle): self
+    {
+        if (!$this->mots_cles->contains($motsCle)) {
+            $this->mots_cles[] = $motsCle;
+        }
+
+        return $this;
+    }
+
+    public function removeMotsCle(MotsCles $motsCle): self
+    {
+        if ($this->mots_cles->contains($motsCle)) {
+            $this->mots_cles->removeElement($motsCle);
+        }
+
+        return $this;
+    }
+
 }

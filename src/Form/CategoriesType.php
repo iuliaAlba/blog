@@ -7,7 +7,6 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-
 class CategoriesType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -15,6 +14,7 @@ class CategoriesType extends AbstractType
         $builder
             ->add('nom')
             // ->add('slug')
+            // ->add('articles')
         ;
     }
 
