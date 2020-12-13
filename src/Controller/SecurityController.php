@@ -10,12 +10,12 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class SecurityController extends AbstractController
 {
     /**
-     * @Route("/login", name="app_login")
+     * @Route("/identification", name="app_login")
      */
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
         if ($this->getUser()) {
-            return $this->redirectToRoute(‘articles_index’);
+            return $this->redirectToRoute('articles_index');
             // return new RedirectResponse($this->urlGenerator->generate(‘articles_index’));
         }
 

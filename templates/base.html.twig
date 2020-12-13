@@ -49,12 +49,14 @@
                   <a class="nav-link" href="#">A propos du blog</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ path('articles_new')}}">Ecrire</a>
-                </li>
-                <li class="nav-item">
                   <a class="nav-link" href="#">Nous contacter</a>
                 </li>
-
+                {% if is_granted('ROLE_ADMIN') %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ path('admin_accueil')}}">Administrateur</a>
+                </li>
+                {% endif %}
+                
                 {% if app.user %}
                   {% if is_granted('ROLE_ADMIN') %}
                     <li  class="nav-item"><a class="nav-link"  href="/admin">Admin.</a></li>
