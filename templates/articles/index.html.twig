@@ -20,10 +20,11 @@
 					<div class="d-flex justify-content-between">
 						{# <div class="col-lg-5 col-md-5 mx-auto" > #}
 							<img
-							src="{{ vich_uploader_asset(article, 'imageFile') }}"  alt="" class="img-fluid" style=' width: 40%; object-fit: contain; display: table-cell; vertical-align: middle;'/>
+							src="{{ vich_uploader_asset(article, 'imageFile') }}"  alt="" class="img-fluid" style=' width: 40%; object-fit: contain; display: table-cell; vertical-align: middle;'/>						
 						{# style='height: 30%; width: 30%; object-fit: contain'/> #}
 						{# </div> #}
-
+						{# <img
+							src="{{ vich_uploader_asset(article, 'imageFile') |imagine_filter('carre')}}"  alt="" /> #}
 						<div class="post-preview">
 
 							<a href="{{ path('articles_show', {'slug': article.slug}) }}">
