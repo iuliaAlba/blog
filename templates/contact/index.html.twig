@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+{{form(contactForm)}}
+{# <h1>Nouveau contact</h1>
+<p>Nom : {{contact.nom}}</p>
+<p>e-mail : {{contact.email}}</p>
+<p>Message : {{contact.message|raw}}</p> #}
+{% endblock %}

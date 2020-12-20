@@ -49,7 +49,7 @@
                   <a class="nav-link" href="#">A propos du blog</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Nous contacter</a>
+                  <a class="nav-link" href="{{ path('contact')}}">Nous contacter</a>
                 </li>
                 {% if is_granted('ROLE_ADMIN') %}
                 <li class="nav-item">
