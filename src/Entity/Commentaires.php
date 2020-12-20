@@ -30,7 +30,7 @@ class Commentaires
     private $contenu;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean",options={"default" : true})
      */
     private $actif;
 
@@ -56,6 +56,11 @@ class Commentaires
      * @ORM\Column(type="boolean")
      */
     private $rgpd;
+
+    public function __construct()
+    {
+        $this->actif = true;
+    }
 
     public function getId(): ?int
     {
