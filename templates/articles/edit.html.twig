@@ -3,11 +3,17 @@
 {% block title %}Edit Articles{% endblock %}
 
 {% block body %}
-    <h1>Edit Articles</h1>
-
+    <div class="d-flex justify-content-between">
+        <div>
+            <h1>Edit Articles</h1>
+        </div>
+        <div class="clearfix">
+            {{ include('articles/_delete_form.html.twig') }}
+        </div>
+    </div>
     {{ include('articles/_form.html.twig', {'button_label': 'Update'}) }}
-
+    
     <a href="{{ path('articles_index') }}">back to list</a>
 
-    {{ include('articles/_delete_form.html.twig') }}
+    
 {% endblock %}

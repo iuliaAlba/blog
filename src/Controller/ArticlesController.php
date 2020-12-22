@@ -51,6 +51,37 @@ class ArticlesController extends AbstractController
         // ]);
     }
 
+ /**
+ * Creates a form to delete a Categories entity.
+ *
+ * @param Categories $category The Categories entity
+
+ *
+ * @return \Symfony\Component\Form\Form The form
+ */
+private function createDeleteForm(Articles $article)
+{
+	return $this->createFormBuilder()->setAction($this->generateUrl('categories_delete',array('id' => $article->getId())))
+	    ->setMethod('DELETE')
+	    ->getForm();
+}
+
+    /**
+     * @Route("/{slug}/supprime", name="articles_delete", methods={"DELETE","POST"})
+     */
+    public function delete(Request $request, Articles $article): Response
+    {
+        $form = $this->createDeleteForm($article);
+        $form->handleRequest($request);
+
+        if ($this->isCsrfTokenValid('delete'.$article->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($article);
+            
+            $entityManager->flush();
+        }
+        return $this->redirectToRoute('articles_index');
+    }
     /**
      * @IsGranted("ROLE_EDITOR")
      * @Route("/new", name="articles_new", methods={"GET","POST"})
@@ -75,6 +106,7 @@ class ArticlesController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
 
     /**
      * @Route("/{slug}", name="articles_show")
@@ -153,21 +185,23 @@ class ArticlesController extends AbstractController
         ]);
     }
 
-    /**
-     * @IsGranted("ROLE_EDITOR")
-     * @Route("/{id}", name="articles_delete", methods={"DELETE"})
-     */
-    public function delete(Request $request, Articles $article): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$article->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($article);
-            $entityManager->flush();
-        }
+    // /**
+    //  * @IsGranted("ROLE_EDITOR")
+    //  * @Route("/{id}", name="articles_delete", methods={"DELETE"})
+    //  */
+    // public function delete(Request $request, Articles $article): Response
+    // {
+        // if ($this->isCsrfTokenValid('delete'.$article->getId(), $request->request->get('_token'))) {
+            
+        //     $entityManager = $this->getDoctrine()->getManager();
+        //     dump($article);
+        //     $entityManager->remove($article);
+        //     $entityManager->flush();
+        // }
 
-        return $this->redirectToRoute('articles_index');
-    }
-
+    //     return $this->redirectToRoute('articles_index');
+    // }
+    
 //     /**
 //  * @Route("/{slug}", name="article")
 // */
