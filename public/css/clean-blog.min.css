@@ -24,7 +24,7 @@ a {
 }
 
 a:focus, a:hover {
-    color: #0085a1
+    color: #058f3e
 }
 
 blockquote {
@@ -51,13 +51,13 @@ blockquote {
 
 ::-moz-selection {
     color: #fff;
-    background: #0085a1;
+    background: #058f3e;
     text-shadow: none
 }
 
 ::selection {
     color: #fff;
-    background: #0085a1;
+    background: #058f3e;
     text-shadow: none
 }
 
@@ -141,13 +141,13 @@ img::-moz-selection {
         color: #212529
     }
     #mainNav.is-fixed .navbar-brand:focus, #mainNav.is-fixed .navbar-brand:hover {
-        color: #0085a1
+        color: #058f3e
     }
     #mainNav.is-fixed .navbar-nav>li.nav-item>a {
         color: #212529
     }
     #mainNav.is-fixed .navbar-nav>li.nav-item>a:focus, #mainNav.is-fixed .navbar-nav>li.nav-item>a:hover {
-        color: #0085a1
+        color: #058f3e
     }
     #mainNav.is-visible {
         transform: translate3d(0, 100%, 0)
@@ -155,9 +155,9 @@ img::-moz-selection {
 }
 
 header.masthead {
-    margin-bottom: 50px;
+    margin-bottom: 0px;
     background: no-repeat center center;
-    background-color: #868e96;
+    background-color: #37383a;
     background-attachment: scroll;
     position: relative;
     background-size: cover;
@@ -255,7 +255,7 @@ header.masthead .post-heading .meta a {
 
 .post-preview>a:focus, .post-preview>a:hover {
     text-decoration: none;
-    color: #0085a1
+    color: #058f3e
 }
 
 .post-preview>a>.post-title {
@@ -283,7 +283,7 @@ header.masthead .post-heading .meta a {
 
 .post-preview>.post-meta>a:focus, .post-preview>.post-meta>a:hover {
     text-decoration: underline;
-    color: #0085a1
+    color: #058f3e
 }
 
 @media only screen and (min-width:768px) {
@@ -342,7 +342,7 @@ header.masthead .post-heading .meta a {
 }
 
 .floating-label-form-group-with-focus label {
-    color: #0085a1
+    color: #058f3e
 }
 
 form .form-group:first-child .floating-label-form-group {
@@ -375,14 +375,14 @@ footer .copyright {
 }
 
 .btn-primary {
-    background-color: #0085a1;
-    border-color: #0085a1
+    background-color: #058f3e;
+    border-color: #058f3e
 }
 
 .btn-primary:active, .btn-primary:focus, .btn-primary:hover {
     color: #fff;
-    background-color: #00657b!important;
-    border-color: #00657b!important
+    background-color: #01680a!important;
+    border-color: #01680a!important
 }
 
 .btn-lg {

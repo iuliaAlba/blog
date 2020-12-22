@@ -3,7 +3,26 @@
 {% block title %}Mon Blog{% endblock %}
 
 {% block body %}
-    <h1>Mon Blog</h1>
-    <p>Ceci est la page d'accueil</p>
-    <p><a href="{{ path('articles_index') }}">Liste des articles</a></p>
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-center">
+    <div class="container" data-aos="zoom-in" data-aos-delay="100">
+      <h1>Iulia Alba</h1>
+      <p>Experte en <span class="typed"
+          data-typed-items="Re&#769;haussement d'e&#769;go, 'Make your pet great again', Production de supports satanistes"></span>
+      </p>
+      <div class="social-links">
+        <!-- <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a> -->
+        <!-- <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a> -->
+        <!-- <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a> -->
+        <!-- <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a> -->
+        <a href="https://www.linkedin.com/in/julia-rodenas-1481921a/" class="linkedin"><i
+            class="bx bxl-linkedin"></i></a>
+      </div>
+      <p><a class="btn btn-primary float-left" href="{{ path('articles_index') }}">Liste des articles</a></p>
+    </div>
+  </section><!-- End Hero -->
+    {# <h1>Mon Blog</h1>
+    <p>Ceci est la page d'accueil</p> #}
+    
 {% endblock %}
