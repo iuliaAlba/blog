@@ -1,9 +1,90 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Contact (mais je ne reçois rien, je crois qu'il faut redefinir le .env... Nassim à l'aide!!!!!{% endblock %}
+{% block title %}Contact{% endblock %}
 
 {% block body %}
-{{form(contactForm)}}
+
+{{ form_start(contactForm) }}
+<!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up" style="width:auto;  ">
+
+        <div class="section-title">
+          <h2>Contact  (mais je ne reçois rien, je crois qu'il faut redéfinir le .env... Nassim à l'aide!!!!!</h2>
+        </div>
+
+        <div class="row mt-1" style="width:auto">
+
+          <div class="col-lg-4">
+            <div class="info">
+              <div class="address">
+                <i class="icofont-google-map"></i>
+                <h4>Adresse:</h4>
+                <p>95 Boulevard Pinel, 69678 Bron</p>
+              </div>
+
+              <div class="email">
+                <i class="icofont-envelope"></i>
+                <h4>Adresse e&#769;lectronique:</h4>
+                <p>iuliaAlba@yopmail.fr</p>
+              </div>
+
+              <div class="phone">
+                <i class="icofont-phone"></i>
+                <h4>te&#769;le&#769;phone:</h4>
+                <p>08 36 65 65 65</p>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-8 mt-5 mt-lg-0">
+
+            {# <form action="forms/contact.php" method="post" role="form" class="php-email-form"> #}
+              <div class="form-row">
+                <div class="col-md-6 form-group">
+                  {{ form_row(contactForm.nom, {'label': 'Votre doux patronyme:'}) }}
+                </div>
+                <div class="col-md-6 form-group">
+                  {{ form_row(contactForm.email, {'label': 'Votre adresse électronique:'}) }}
+                </div>
+              </div>
+              {# <div class="form-group">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Objet"
+                  data-rule="minlen:4" data-msg="Veuillez rentrer au moins 8 caracte&#768;res" />
+                <div class="validate"></div>
+              </div> #}
+              <div class="form-group">
+                {{ form_row(contactForm.message, {'label': 'J\'attends vos bons mots:'}) }}
+              </div>
+              {# <div class="mb-3">
+                <div class="loading">Chargement</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Votre message a e&#769;te&#769; envoye&#769;!</div>
+              </div> #}
+              <div class="text-center">{{ form_row(contactForm.envoyer, { 'label': 'Envoyer' }) }}</div>
+            {# </form> #}
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+{{ form_end(contactForm) }}
+{# {{ form_start(contactForm) }}
+    <div class="row">
+        <div class="col">
+            {{ form_row(contactForm.nom) }}
+        </div>
+        <div class="col" id="some-custom-id">
+            {{ form_row(contactForm.email) }}
+        </div>
+    </div>
+{{ form_end(contactForm) }} #}
+
+{# {{form(contactForm)}} #}
 {# <h1>Nouveau contact</h1>
 <p>Nom : {{contact.nom}}</p>
 <p>e-mail : {{contact.email}}</p>

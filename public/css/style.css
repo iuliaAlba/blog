@@ -930,6 +930,7 @@ section {
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
+
 .contact .info {
   width: 100%;
   background: #fff;
@@ -1058,7 +1059,34 @@ section {
 .contact .php-email-form button[type="submit"]:hover {
   background: #0678e3;
 }
+.contact .btn {
+  border: 0;
+  padding: 10px 35px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif
+}
 
+.contact .btn-primary {
+  background-color: #058f3e;
+  border-color: #058f3e
+}
+
+.contact .btn-primary:active, .btn-primary:focus, .btn-primary:hover {
+  color: #fff;
+  background-color: #01680a!important;
+  border-color: #01680a!important
+}
+
+.contact .btn-lg {
+  font-size: 16px;
+  padding: 25px 35px
+}
 @-webkit-keyframes animate-loading {
   0% {
     transform: rotate(0deg);
