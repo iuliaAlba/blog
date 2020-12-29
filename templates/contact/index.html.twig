@@ -41,7 +41,7 @@
 
           <div class="col-lg-8 mt-5 mt-lg-0">
 
-            {# <form action="forms/contact.php" method="post" role="form" class="php-email-form"> #}
+
               <div class="form-row">
                 <div class="col-md-6 form-group">
                   {{ form_row(contactForm.nom, {'label': 'Votre doux patronyme:'}) }}
@@ -50,21 +50,10 @@
                   {{ form_row(contactForm.email, {'label': 'Votre adresse électronique:'}) }}
                 </div>
               </div>
-              {# <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Objet"
-                  data-rule="minlen:4" data-msg="Veuillez rentrer au moins 8 caracte&#768;res" />
-                <div class="validate"></div>
-              </div> #}
               <div class="form-group">
                 {{ form_row(contactForm.message, {'label': 'J\'attends vos bons mots:'}) }}
               </div>
-              {# <div class="mb-3">
-                <div class="loading">Chargement</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Votre message a e&#769;te&#769; envoye&#769;!</div>
-              </div> #}
               <div class="text-center">{{ form_row(contactForm.envoyer, { 'label': 'Envoyer' }) }}</div>
-            {# </form> #}
 
           </div>
 

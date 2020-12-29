@@ -1,8 +1,49 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Modifier un utilisateur{% endblock %}
+{% block title %}Modifier un utilisateur
+{% endblock %}
 
 {% block body %}
-    <h1>Modifier un utilisateur</h1>
-    {{ form(userForm) }}
+
+	<!-- ======= register Section ======= -->
+	<section id="register" class="register">
+		<div class="container" data-aos="fade-up">
+			<div class="center">
+				<div class="section-title">
+					<h2>Laver le cerveau de la recrue</h2>
+				</div>
+				{{ form_start(userForm) }}
+				<div
+					class="col-lg-6 mt-5 mt-lg-0">
+					{# <form method="post" role="form" class="php-email-form"> #}
+
+					<div class="form-row">
+						<div class="col-md-6 form-group">
+							<div class="center">
+								{{ form_row(userForm.email, {'label': 'Courriel :'}) }}
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="center">
+							<div class="col-md-15 form-group">
+								{{ form_row(userForm.roles,{'label': 'Grade :'}) }}
+							</div>
+						</div>
+					</div>
+
+					<div class="center">
+                        <div class="text-center">
+							{{ form_row(userForm.valider, { 'label': 'Modifier' }) }}
+						</div>
+					</div>
+					{# </form> #}
+				</div>
+			</div>
+		</div>
+	</section>
+	{{ form_end(userForm) }}
+
+	{# <h1>Modifier un utilisateur</h1>
+	    {{ form(userForm) }} #}
 {% endblock %}

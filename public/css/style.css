@@ -926,7 +926,352 @@ section {
     width: 80%;
   }
 }
+/*--------------------------------------------------------------
+# Sign in
+--------------------------------------------------------------*/
+.signin .container {
+  display: flex;
+  justify-content: center;
+}
+.signin .center {
+  width: 800px;
+  margin-top: 25px;
+}
 
+.signin .info {
+  width: 100%;
+  background: #fff;
+}
+
+.signin .info i {
+  font-size: 20px;
+  color: #058f3e;
+  float: left;
+  width: 44px;
+  height: 44px;
+  background: #eef7ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+}
+
+.signin .info h4 {
+  padding: 0 0 0 60px;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #45505b;
+}
+
+.signin .info p {
+  padding: 0 0 0 60px;
+  margin-bottom: 0;
+  font-size: 14px;
+  color: #728394;
+}
+
+.signin .info .email, .signin .info .phone {
+  margin-top: 40px;
+}
+
+.signin .info .email:hover i, .signin .info .address:hover i, .signin .info .phone:hover i {
+  background: #058f3e;
+  color: #fff;
+}
+
+.signin .php-email-form {
+  width: 100%;
+  background: #fff;
+}
+
+.signin .php-email-form .form-group {
+  padding-bottom: 8px;
+}
+
+.signin .php-email-form .validate {
+  display: none;
+  color: red;
+  margin: 0 0 15px 0;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+.signin .php-email-form .error-message {
+  display: none;
+  color: #fff;
+  background: #ed3c0d;
+  text-align: left;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.signin .php-email-form .error-message br + br {
+  margin-top: 25px;
+}
+
+.signin .php-email-form .sent-message {
+  display: none;
+  color: #fff;
+  background: #18d26e;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.signin .php-email-form .loading {
+  display: none;
+  background: #fff;
+  text-align: center;
+  padding: 15px;
+}
+
+.signin .php-email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid #18d26e;
+  border-top-color: #eee;
+  -webkit-animation: animate-loading 1s linear infinite;
+  animation: animate-loading 1s linear infinite;
+}
+
+.signin .php-email-form input, .signin .php-email-form textarea {
+  border-radius: 4px;
+  box-shadow: none;
+  font-size: 14px;
+}
+
+.signin .php-email-form input {
+  height: 44px;
+}
+
+.signin .php-email-form textarea {
+  padding: 10px 12px;
+}
+
+.signin .php-email-form button[type="submit"] {
+  background: #058f3e;
+  border: 0;
+  padding: 10px 35px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.signin .php-email-form button[type="submit"]:hover {
+  background: #0678e3;
+}
+.signin .btn {
+  border: 0;
+  padding: 10px 35px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif
+}
+
+.signin .btn-primary {
+  background-color: #058f3e;
+  border-color: #058f3e
+}
+
+.signin .btn-primary:active, .btn-primary:focus, .btn-primary:hover {
+  color: #fff;
+  background-color: #01680a!important;
+  border-color: #01680a!important
+}
+
+.signin .btn-lg {
+  font-size: 16px;
+  padding: 25px 35px
+}
+
+/*--------------------------------------------------------------
+# Register
+--------------------------------------------------------------*/
+.register .container {
+  display: flex;
+  justify-content: center;
+}
+.register .center {
+  width: 800px;
+  margin-top: 25px;
+}
+
+.register .info {
+  width: 100%;
+  background: #fff;
+}
+
+.register .info i {
+  font-size: 20px;
+  color: #058f3e;
+  float: left;
+  width: 44px;
+  height: 44px;
+  background: #eef7ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+}
+
+.register .info h4 {
+  padding: 0 0 0 60px;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #45505b;
+}
+
+.register .info p {
+  padding: 0 0 0 60px;
+  margin-bottom: 0;
+  font-size: 14px;
+  color: #728394;
+}
+
+.register .info .email, .register .info .phone {
+  margin-top: 40px;
+}
+
+.register .info .email:hover i, .register .info .address:hover i, .register .info .phone:hover i {
+  background: #058f3e;
+  color: #fff;
+}
+
+.register .php-email-form {
+  width: 100%;
+  background: #fff;
+}
+
+.register .php-email-form .form-group {
+  padding-bottom: 8px;
+}
+
+.register .php-email-form .validate {
+  display: none;
+  color: red;
+  margin: 0 0 15px 0;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+.register .php-email-form .error-message {
+  display: none;
+  color: #fff;
+  background: #ed3c0d;
+  text-align: left;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.register .php-email-form .error-message br + br {
+  margin-top: 25px;
+}
+
+.register .php-email-form .sent-message {
+  display: none;
+  color: #fff;
+  background: #18d26e;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.register .php-email-form .loading {
+  display: none;
+  background: #fff;
+  text-align: center;
+  padding: 15px;
+}
+
+.register .php-email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid #18d26e;
+  border-top-color: #eee;
+  -webkit-animation: animate-loading 1s linear infinite;
+  animation: animate-loading 1s linear infinite;
+}
+
+.register .php-email-form input, .register .php-email-form textarea {
+  border-radius: 4px;
+  box-shadow: none;
+  font-size: 14px;
+}
+
+.register .php-email-form input {
+  height: 44px;
+}
+
+.register .php-email-form textarea {
+  padding: 10px 12px;
+}
+
+.register .php-email-form button[type="submit"] {
+  background: #058f3e;
+  border: 0;
+  padding: 10px 35px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.register .php-email-form button[type="submit"]:hover {
+  background: #0678e3;
+}
+.register .btn {
+  border: 0;
+  padding: 10px 35px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif
+}
+
+.register .btn-primary {
+  border: 0;
+  padding: 10px 35px;
+  background-color: #058f3e;
+  border-color: #058f3e;
+  transition: 0.4s;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif
+}
+
+.register .btn-primary:active, .btn-primary:focus, .btn-primary:hover {
+  color: #fff;
+  background-color: #01680a!important;
+  border-color: #01680a!important
+}
+
+.register .btn-lg {
+  font-size: 16px;
+  padding: 25px 35px
+}
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/

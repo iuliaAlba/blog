@@ -1,21 +1,73 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}S'enroler
+{% endblock %}
 
 {% block body %}
-    {% for flashError in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
-    {% endfor %}
 
-    <h1>Register</h1>
+	<!-- ======= register Section ======= -->
+	<section id="register" class="register">
+		<div class="container" data-aos="fade-up">
+			<div class="center">
+				<div class="section-title">
+					<h2>Engagez-vous</h2>
+				</div>
+				{{ form_start(registrationForm) }}
+				<div class="col-lg-6 mt-5 mt-lg-0">
+					{# <form method="post" role="form" class="php-email-form"> #}
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+						{% for flashError in app.flashes('verify_email_error') %}
+							<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+						{% endfor %}
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+						<div class="form-row">
+							<div class="col-md-6 form-group">
+								<div class="center">
+									{{ form_row(registrationForm.email, {'label': 'Votre adresse électronique:'}) }}
+								</div>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="col-md-6 form-group">
+								<div class="center">
+									{{ form_row(registrationForm.plainPassword, { label: 'Mot de passe'}) }}
+								</div>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="center">
+								<div class="col-md-15 form-group">
+									{{ form_row(registrationForm.agreeTerms,{ label: 'Je m\'engage à céder mon âme à la grande Maréchale Iulia Alba'}) }}
+								</div>
+							</div>
+						</div>
+
+												<div class="center">
+							<div class="text-center">
+								<button class="btn-primary" type="submit">S'engager</button>
+							</div>
+						</div>
+					{# </form> #}
+				</div>
+			</div>
+		</div>
+	</section>
+	{{ form_end(registrationForm) }}
+
+
+	{# {% for flashError in app.flashes('verify_email_error') %}
+		        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+		    {% endfor %}
+		
+		    <h1>Register</h1>
+		
+		    {{ form_start(registrationForm) }}
+		        {{ form_row(registrationForm.email) }}
+		        {{ form_row(registrationForm.plainPassword, {
+		            label: 'Password'
+		        }) }}
+		        {{ form_row(registrationForm.agreeTerms) }}
+		
+		        <button type="submit" class="btn">Register</button>
+		    {{ form_end(registrationForm) }} #}
 {% endblock %}

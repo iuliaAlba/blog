@@ -55,8 +55,9 @@
     {% else %}
         <p>Il n'y a pas encore de commentaire, publiez le premier !</p>
     {% endfor %}
-    {{ form(form) }}
-
+	{% if app.user %}
+  	  {{ form(form) }}
+	{% endif %}	
 
 
 
