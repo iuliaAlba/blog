@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block body %}
-
+<section id="hero" class="d-flex flex-column justify-content-center">
 	<!-- ======= register Section ======= -->
 	<section id="register" class="register">
 		<div class="container" data-aos="fade-up">
@@ -42,7 +42,7 @@
 							</div>
 						</div>
 
-												<div class="center">
+						<div class="center">
 							<div class="text-center">
 								<button class="btn-primary" type="submit">S'engager</button>
 							</div>
@@ -53,7 +53,7 @@
 		</div>
 	</section>
 	{{ form_end(registrationForm) }}
-
+</section>
 
 	{# {% for flashError in app.flashes('verify_email_error') %}
 		        <div class="alert alert-danger" role="alert">{{ flashError }}</div>

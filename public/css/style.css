@@ -254,7 +254,10 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (min-width: 992px) {
   #hero {
-    padding-left: 160px;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 5%;
+    padding-bottom: 5%;
   }
 }
 
@@ -304,6 +307,8 @@ h1, h2, h3, h4, h5, h6 {
 #hero .social-links a:hover {
   color: #058f3e;
 }
+
+
 
 @media (max-width: 992px) {
   #hero {
@@ -719,6 +724,11 @@ section {
 /*--------------------------------------------------------------
 # Services
 --------------------------------------------------------------*/
+.services {
+  background: #eef7ff;
+  width: 100%;
+}
+
 .services .icon-box {
   text-align: center;
   padding: 70px 20px 80px 20px;
@@ -929,6 +939,10 @@ section {
 /*--------------------------------------------------------------
 # Sign in
 --------------------------------------------------------------*/
+.signin {
+  background: #eef7ff;
+  width: 100%;
+}
 .signin .container {
   display: flex;
   justify-content: center;
@@ -1098,6 +1112,10 @@ section {
 /*--------------------------------------------------------------
 # Register
 --------------------------------------------------------------*/
+.register {
+  background: #eef7ff;
+  width: 100%;
+}
 .register .container {
   display: flex;
   justify-content: center;
@@ -1275,7 +1293,43 @@ section {
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
+.contact {
+  background: #eef7ff;
+  width: 100%;
+}
+.contact .center {
+  width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.contact .navigation span {
+  color: #30d41a;
+  margin: 0 0 0 0;
+  font-size: 20px;
+  border: 0;
+  padding: 25px 18px;
+  transition: 0.4s;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif
+}
 
+.contact .navigation a {
+  color: #165314;
+}
+
+.contact .with-bg-size {
+  background-image: url('https://i.stack.imgur.com/wPh0S.jpg');
+  width: 200px;
+  height: 100px;
+  background-position: center;
+  /* Make the background image cover the area of the <div>, and clip the excess */
+  background-size: cover;
+}
 .contact .info {
   width: 100%;
   background: #fff;

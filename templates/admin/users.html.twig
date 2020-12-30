@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block body %}
-
+<section id="hero" class="d-flex flex-column justify-content-center">
 	<!-- ======= Services Section ======= -->
 	<section id="services" class="services">
 		<div class="container" data-aos="fade-up">
@@ -37,7 +37,7 @@
 							<div class="icon-box iconbox-blue">
 								<div class="icon">
 									<svg width="6em" height="6em" viewbox="0 0 16 16" class="bi bi-person-bounding-box" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-										<<path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>									</svg>
+										<path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>									</svg>
 									<i class="bi bi-person-square"></i>
 								</div>
 								<h4>
@@ -62,8 +62,8 @@
                             <div class="icon-box iconbox-pink">
 								<div class="icon">
 									<svg width="6em" height="6em" viewbox="0 0 16 16" class="bi bi-person-bounding-box" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
-</svg>
+  									<path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+									</svg>
 									<i class="bi bi-person-square"></i>
 								</div>
 								<h4>
@@ -122,115 +122,6 @@
 
 		</div>
 	</section>
+</section>
 
-	{# <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
-											            data-aos-delay="200">
-											            <div class="icon-box iconbox-orange ">
-											              <div class="icon">
-											                <svg width="6em" height="6em" viewBox="0 0 16 16" class="bi bi-bug" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-											                  <path fill-rule="evenodd" d="M4.355.522a.5.5 0 0 1 .623.333l.291.956A4.979 4.979 0 0 1 8 1c1.007 0 1.946.298 2.731.811l.29-.956a.5.5 0 1 1 .957.29l-.41 1.352A4.985 4.985 0 0 1 13 6h.5a.5.5 0 0 0 .5-.5V5a.5.5 0 0 1 1 0v.5A1.5 1.5 0 0 1 13.5 7H13v1h1.5a.5.5 0 0 1 0 1H13v1h.5a1.5 1.5 0 0 1 1.5 1.5v.5a.5.5 0 1 1-1 0v-.5a.5.5 0 0 0-.5-.5H13a5 5 0 0 1-10 0h-.5a.5.5 0 0 0-.5.5v.5a.5.5 0 1 1-1 0v-.5A1.5 1.5 0 0 1 2.5 10H3V9H1.5a.5.5 0 0 1 0-1H3V7h-.5A1.5 1.5 0 0 1 1 5.5V5a.5.5 0 0 1 1 0v.5a.5.5 0 0 0 .5.5H3c0-1.364.547-2.601 1.432-3.503l-.41-1.352a.5.5 0 0 1 .333-.623zM4 7v4a4 4 0 0 0 3.5 3.97V7H4zm4.5 0v7.97A4 4 0 0 0 12 11V7H8.5zM12 6H4a3.99 3.99 0 0 1 1.333-2.982A3.983 3.983 0 0 1 8 2c1.025 0 1.959.385 2.666 1.018A3.989 3.989 0 0 1 12 6z"/>
-											                </svg>
-											                <!-- <i class="bx bx-file"></i> -->
-											              </div>
-											              <h4><a href="">Parce qu'ils le valent bien</a></h4>
-											              <p>Votre caniche royal immortalise&#769; en peinture de 7m par 7m tro&#770;nant dans votre salon. Tre&#768;s
-											                bonne ide&#769;e de cadeau pour vos petits enfants ingrats.</p>
-											            </div>
-											          </div>
-											
-											          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in"
-											            data-aos-delay="300">
-											            <div class="icon-box iconbox-pink">
-											              <div class="icon">
-											                <svg width="6em" height="6em" viewBox="0 0 16 16" class="bi bi-bullseye" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-											                  <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-											                  <path fill-rule="evenodd" d="M8 13A5 5 0 1 0 8 3a5 5 0 0 0 0 10zm0 1A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"/>
-											                  <path fill-rule="evenodd" d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/>
-											                  <path d="M9.5 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-											                </svg>
-											                <!-- <i class="bx bx-tachometer"></i> -->
-											              </div>
-											              <h4><a href="">Vade retro Satanas</a></h4>
-											              <p>Hommages picturaux aux dieux que vous souhaitez honorer. Compatible poupe&#769;e vaudou. Je me
-											                de&#769;gage de toute responsabilite&#769; en cas de retour de male&#769;dictions.</p>
-											            </div>
-											          </div> #}
-<!-- <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
-								            <div class="icon-box iconbox-yellow">
-								              <div class="icon">
-								                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-								                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,503.46388370962813C374.79870501325706,506.71871716319447,464.8034551963731,527.1746412648533,510.4981551193396,467.86667711651364C555.9287308511215,408.9015244558933,512.6030010748507,327.5744911775523,490.211057578863,256.5855673507754C471.097692560561,195.9906835881958,447.69079081568157,138.11976852964426,395.19560036434837,102.3242989838813C329.3053358748298,57.3949838291264,248.02791733380457,8.279543830951368,175.87071277845988,42.242879143198664C103.41431057327972,76.34704239035025,93.79494320519305,170.9812938413882,81.28167332365135,250.07896920659033C70.17666984294237,320.27484674793965,64.84698225790005,396.69656628748305,111.28512138212992,450.4950937839243C156.20124167950087,502.5303643271138,231.32542653798444,500.4755392045468,300,503.46388370962813"></path>
-								                </svg>
-								                <i class="bx bx-layer"></i>
-								              </div>
-								              <h4><a href="">Nemo Enim</a></h4>
-								              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-								            </div>
-								          </div>
-								
-								          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
-								            <div class="icon-box iconbox-red">
-								              <div class="icon">
-								                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-								                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,532.3542879108572C369.38199826031484,532.3153073249985,429.10787420159085,491.63046689027357,474.5244479745417,439.17860296908856C522.8885846962883,383.3225815378663,569.1668002868075,314.3205725914397,550.7432151929288,242.7694973846089C532.6665558377875,172.5657663291529,456.2379748765914,142.6223662098291,390.3689995646985,112.34683881706744C326.66090330228417,83.06452184765237,258.84405631176094,53.51806209861945,193.32584062364296,78.48882559362697C121.61183558270385,105.82097193414197,62.805066853699245,167.19869350419734,48.57481801355237,242.6138429142374C34.843463184063346,315.3850353017275,76.69343916112496,383.4422959591041,125.22947124332185,439.3748458443577C170.7312796277747,491.8107796887764,230.57421082200815,532.3932930995766,300,532.3542879108572"></path>
-								                </svg>
-								                <i class="bx bx-slideshow"></i>
-								              </div>
-								              <h4><a href="">Dele Cardo</a></h4>
-								              <p>Quis consequatur saepe eligendi voluptatem consequatur dolor consequuntur</p>
-								            </div>
-								          </div>
-								
-								          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
-								            <div class="icon-box iconbox-teal">
-								              <div class="icon">
-								                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-								                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,566.797414625762C385.7384707136149,576.1784315230908,478.7894351017131,552.8928747891023,531.9192734346935,484.94944893311C584.6109503024035,417.5663521118492,582.489472248146,322.67544863468447,553.9536738515405,242.03673114598146C529.1557734026468,171.96086150256528,465.24506316201064,127.66468636344209,395.9583748389544,100.7403814666027C334.2173773831606,76.7482773500951,269.4350130405921,84.62216499799875,207.1952322260088,107.2889140133804C132.92018162631612,134.33871894543012,41.79353780512637,160.00259165414826,22.644507872594943,236.69541883565114C3.319112789854554,314.0945973066697,72.72355303640163,379.243833228382,124.04198916343866,440.3218312028393C172.9286146004772,498.5055451809895,224.45579914871206,558.5317968840102,300,566.797414625762"></path>
-								                </svg>
-								                <i class="bx bx-arch"></i>
-								              </div>
-								              <h4><a href="">Divera Don</a></h4>
-								              <p>Modi nostrum vel laborum. Porro fugit error sit minus sapiente sit aspernatur</p>
-								            </div>
-								          </div> -->
-
-	<!-- End Services Section -->
-
-
-	{# <h1>Liste des utilisateurs</h1>
-						    <table>
-						        <thead>
-						            <th>ID</th>
-						            <th>Email</th>
-						            <th>Rôles</th>
-						            <th>Articles</th>
-						            <th>Actions</th>
-						        </thead>
-						        <tbody>#}
-	{# On boucle sur les utilisateurs #}
-	{# {% for user in users %}
-							                <tr>
-							                    <td>{{ user.id }}</td>
-							                    <td>{{ user.email }}</td>
-							                    <td>
-							                        {# On boucle sur les rôles #}
-	{# {% for role in user.roles %}
-							                            {% if role == "ROLE_USER" %}
-							                                Utilisateur
-							                            {% elseif role == "ROLE_EDITOR" %}
-							                                Editeur
-							                            {% elseif role == "ROLE_ADMIN" %}
-							                                Administrateur
-							                            {% endif %}
-							                        {% endfor %}
-							                    </td>
-							                    <td>{{ user.articles|length }}</td>
-							                    <td><a href="{{ path('admin_modifier_utilisateur', {'id': user.id}) }}">Modifier</a></td>
-							                </tr>
-							                
-							            {% else %}
-							                <p>Aucun utilisateur inscrit</p>
-							            {% endfor %}
-							        </tbody> 
-							    </table>  #}
 {% endblock %}

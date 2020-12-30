@@ -3,9 +3,10 @@
 {% block title %}Contact{% endblock %}
 
 {% block body %}
-
+<section id="hero" class="d-flex flex-column justify-content-center">
 {{ form_start(contactForm) }}
 <!-- ======= Contact Section ======= -->
+
     <section id="contact" class="contact">
       <div class="container" data-aos="fade-up" style="width:auto;  ">
 
@@ -20,19 +21,19 @@
               <div class="address">
                 <i class="icofont-google-map"></i>
                 <h4>Adresse:</h4>
-                <p>95 Boulevard Pinel, 69678 Bron</p>
+                <p style="font-size: 16px;">95 Boulevard Pinel, 69678 Bron</p>
               </div>
 
               <div class="email">
                 <i class="icofont-envelope"></i>
                 <h4>Adresse e&#769;lectronique:</h4>
-                <p>iuliaAlba@yopmail.fr</p>
+                <p style="font-size: 16px;">iuliaAlba@yopmail.fr</p>
               </div>
 
               <div class="phone">
                 <i class="icofont-phone"></i>
                 <h4>te&#769;le&#769;phone:</h4>
-                <p>08 36 65 65 65</p>
+                <p style="font-size: 16px;">08 36 65 65 65</p>
               </div>
 
             </div>
@@ -62,6 +63,7 @@
       </div>
     </section><!-- End Contact Section -->
 {{ form_end(contactForm) }}
+</section><!-- End Contact Section -->
 {# {{ form_start(contactForm) }}
     <div class="row">
         <div class="col">
